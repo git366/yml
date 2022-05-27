@@ -1,6 +1,6 @@
 ---
  - name: update
-   hosts: userver
+   hosts: all
    become: yes
    tasks:
       - name: update and upgrade
