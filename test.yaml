@@ -1,9 +1,7 @@
 ---
- - name: update
-   hosts: userver
-   become: yes
+ - name: ping test
+   hosts: all
+   #become: yes
    tasks:
-      - name: update and upgrade
-        apt:
-           update_cache: yes
-           upgrade: 'yes'
+      - name: ping
+        ansible.buildin.ping:
