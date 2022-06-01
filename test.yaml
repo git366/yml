@@ -5,7 +5,7 @@
    tasks:
       - name: download timesyncd.conf
         get_url:
-          url: https://github.com/git366/yml/blob/main/timesyncd.conf
+          url: https://raw.githubusercontent.com/git366/yml/main/timesyncd.conf
           dest: /home/ansible/timesyncd.conf
           mode: 0440
       # Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
