@@ -3,8 +3,10 @@
    hosts: all
    become: yes
    tasks:
-      - name: change timezone
-        ansible.builtin.shell: echo Europe/Andorra > /etc/timezone
+#      - name: change timezone
+#        ansible.builtin.shell: echo Europe/Andorra > /etc/timezone
+      - name: change timezone2
+        ansible.builtin.shell: timedatectl set-timezone Europe/Andorra
         
       - name: download timesyncd.conf
         get_url:
