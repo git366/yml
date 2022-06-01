@@ -12,6 +12,7 @@
       - copy:
           src: /home/ansible/timesyncd.conf
           dest: /etc/systemd/timesyncd.conf
+          remote_src: yes #els dos directoris son remots
           owner: root
           group: root
           mode: 0644
