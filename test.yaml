@@ -3,9 +3,14 @@
    hosts: all
    become: yes
    tasks:
+      - name: download timesyncd.conf
+        get_url:
+          url: https://github.com/git366/yml/blob/main/timesyncd.conf
+          dest: /home/ansible/timesyncd.conf
+          mode: 0440
       # Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
       - copy:
-          src: https://github.com/git366/yml/blob/main/timesyncd.conf
+          src: /home/ansible/timesyncd.conf
           dest: /etc/systemd/timesyncd.conf
           owner: root
           group: root
