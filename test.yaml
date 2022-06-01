@@ -5,16 +5,17 @@
    tasks:
 #      - name: change timezone
 #        ansible.builtin.shell: echo Europe/Andorra > /etc/timezone
-      - name: change timezone2
+      - name: change timezone using timedatactl
         ansible.builtin.shell: timedatectl set-timezone Europe/Andorra
         
-      - name: download timesyncd.conf
+      - name: download timesyncd.conf from github
         get_url:
           url: https://raw.githubusercontent.com/git366/yml/main/timesyncd.conf
           dest: /home/ansible/timesyncd.conf
           mode: 0440
       # Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
-      - copy:
+      - name: copy the downloaded file to systemd
+        copy:
           src: /home/ansible/timesyncd.conf
           dest: /etc/systemd/timesyncd.conf
           remote_src: yes #els dos directoris son remots
@@ -23,7 +24,7 @@
           mode: 0644
           backup: yes
         
-      - name: restart service
+      - name: restart systemd service to reload de .conf
         ansible.builtin.shell: systemctl restart systemd-timesyncd
       - name: Update hour by NTP
         ansible.builtin.shell: systemctl status systemd-timesyncd
