@@ -5,7 +5,7 @@
    tasks:
       # Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
       - copy:
-          src: /home/test/timesyncd.conf
+          src: https://github.com/git366/yml/blob/main/timesyncd.conf
           dest: /etc/systemd/timesyncd.conf
           owner: root
           group: root
