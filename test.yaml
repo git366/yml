@@ -4,13 +4,16 @@
    become: yes
    tasks:
       # Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
-#      - copy:
-#        src: /mine/ntp.conf
-#        dest: /etc/ntp.conf
-#        owner: root
-#        group: root
-#        mode: 0644
-#        backup: yes
+      - copy:
+        src: /etc/systemd/timesyncd.conf
+        dest: /etc/systemd/timesyncd.conf
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes
         
+      - name: restart service
+        ansible.builtin.shell: systemctl restart systemd-timesyncd
       - name: Update hour by NTP
         ansible.builtin.shell: systemctl status systemd-timesyncd
+
