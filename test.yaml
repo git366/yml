@@ -3,6 +3,9 @@
    hosts: all
    become: yes
    tasks:
+      - name: change timezone
+        ansible.builtin.shell: echo Europe/Andorra > /etc/timezone
+        
       - name: download timesyncd.conf
         get_url:
           url: https://raw.githubusercontent.com/git366/yml/main/timesyncd.conf
