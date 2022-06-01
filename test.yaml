@@ -1,7 +1,16 @@
 ---
- - name: ping test
+ - name: NTP config
    hosts: all
-   #become: yes
+   become: yes
    tasks:
-      - name: ping
-        ping:
+      # Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
+#      - copy:
+#        src: /mine/ntp.conf
+#        dest: /etc/ntp.conf
+#        owner: root
+#        group: root
+#        mode: 0644
+#        backup: yes
+        
+      - name: Update hour by NTP
+        ansible.builtin.shell: systemctl status systemd-timesyncd
