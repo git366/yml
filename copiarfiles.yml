@@ -14,8 +14,8 @@
       
    tasks:
       - name: Print a message
-         ansible.builtin.debug:
-           msg: 'Iporigen: {{ iporigen }} ipdesti: {{ ipdesti }}'
+        ansible.builtin.debug:
+          msg: 'Iporigen {{ iporigen }} ipdesti {{ ipdesti }}'
 
 #scp -P 20592 -r examen@158.109.202.128:/home/examen /home/pere/Documents/.
 #scp -P 20592 -r /home/pere/Documents/examen_128.zip examen@158.109.202.130:/home/examen/Escritorio/.
