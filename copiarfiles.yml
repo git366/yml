@@ -5,11 +5,11 @@
    vars_prompt:
 
       - name: iporigen
-        prompt: IP Origen:
+        prompt: IP Origen
         private: no
 
       - name: ipdesti
-        prompt: IP Destí:
+        prompt: IP Destí
         private: no
       
    tasks:
