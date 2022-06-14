@@ -7,10 +7,12 @@
       - name: iporigen
         prompt: IP Origen
         private: no
+        when: iporigen is not defined
 
       - name: ipdesti
         prompt: IP Destí
         private: no
+        when: ipdesti is not defined
       
    tasks:
       - name: Print a message
