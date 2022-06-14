@@ -4,20 +4,20 @@
    become: yes
    vars_prompt:
 
-      - name: iporigen
+      - name: ip_origen
         prompt: IP Origen
         private: no
-        when: iporigen is not defined
+        when: ip_origen is not defined
 
-      - name: ipdesti
+      - name: ip_desti
         prompt: IP Destí
         private: no
-        when: ipdesti is not defined
+        when: ip_desti is not defined
       
    tasks:
       - name: Print a message
         ansible.builtin.debug:
-          msg: 'Iporigen {{ iporigen }} ipdesti {{ ipdesti }}'
+          msg: 'Iporigen {{ ip_origen }} ipdesti {{ ip_desti }}'
 
 #scp -P 20592 -r examen@158.109.202.128:/home/examen /home/pere/Documents/.
 #scp -P 20592 -r /home/pere/Documents/examen_128.zip examen@158.109.202.130:/home/examen/Escritorio/.
