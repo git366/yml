@@ -21,8 +21,8 @@
 
 #scp -P 20592 -r examen@158.109.202.128:/home/examen /home/pere/Documents/.
 #scp -P 20592 -r /home/pere/Documents/examen_128.zip examen@158.109.202.130:/home/examen/Escritorio/.
-#      - name: change timezone
-#        ansible.builtin.shell: echo Europe/Andorra > /etc/timezone
+      - name: Copiar de Origen a local
+        ansible.builtin.shell: sshpass -f "/home/test/Documents/pass.txt" scp -P 20592 -r ansible@ {{ ip_origen }} :/home/test /home/test/Documents/.
 #      - name: change timezone using timedatactl
 #        ansible.builtin.shell: timedatectl set-timezone Europe/Andorra
 #        
