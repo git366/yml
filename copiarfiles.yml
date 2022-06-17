@@ -25,6 +25,7 @@
         when: 'inventory_hostname|string in ip_origen|string'
 
       - name: Copy the file from master to desti
+        run_once: yes
         copy: src=buffer/examen.backup.tar.gz dest=/home/test1/examen.backup.tar.gz
         when: 'inventory_hostname|string in ip_desti|string'
 
