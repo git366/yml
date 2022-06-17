@@ -16,6 +16,7 @@
       
    tasks:
       - name: Print a message
+        run_once: yes
         ansible.builtin.debug:
           msg: 'Iporigen {{ ip_origen }} ipdesti {{ ip_desti }}'
 
