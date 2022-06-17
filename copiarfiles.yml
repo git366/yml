@@ -22,11 +22,11 @@
       - name: Fetch the file from the origen to master
         run_once: yes
         fetch: src=/home/test/comandes.txt dest=buffer/ flat=yes
-        when: "{{ ansible_host == {{ ip_origen }} }}"
+        when: "{{ ansible_host == '{{ ip_origen }}' }}"
 
       - name: Copy the file from master to desti
         copy: src=buffer/app01-to-app02.jar dest=/home/test1/comandes.txt
-        when: "{{ ansible_host == {{ ip_desti }} }}"
+        when: "{{ ansible_host == '{{ ip_desti }}' }}"
 
 #      - name: Copiar de Origen a local
 #        ansible.builtin.shell: scp -3 -s -r scp://ansible@10.10.10.200:22//home/ansible scp://ansible@10.10.10.201:22//home/ansible/Documentos/copiahome
