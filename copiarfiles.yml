@@ -22,7 +22,7 @@
       - name: Fetch the file from the origen to master
         run_once: yes
         fetch: src=/home/test/comandes.txt dest=buffer/ flat=yes
-        when: "{{ ansible_host == 'ip_origen|string' }}"
+        when: "{{ inventory_hostname == '200' }}"
 
       - name: Copy the file from master to desti
         copy: src=buffer/app01-to-app02.jar dest=/home/test1/comandes.txt
