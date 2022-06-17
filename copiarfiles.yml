@@ -22,7 +22,7 @@
       - name: Fetch the file from the origen to master
         run_once: yes
         fetch: src=/home/test/comandes.txt dest=buffer/ flat=yes
-        when: "{{ inventory_hostname == '200' }}"
+        when: 'inventory_hostname|string in ip_origen|string'
 
       - name: Copy the file from master to desti
         copy: src=buffer/comandes.txt dest=/home/test1/comandes.txt
