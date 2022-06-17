@@ -27,6 +27,9 @@
       - name: Copy the file from master to desti
         run_once: yes
         copy: src=buffer/examen.backup.tar.gz dest=/home/test1/examen.backup.tar.gz
+          owner: test1
+          group: test1
+          mode: 0644
         when: 'inventory_hostname|string in ip_desti|string'
 
 
