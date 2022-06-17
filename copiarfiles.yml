@@ -27,7 +27,7 @@
       - name: Copy the file from master to desti
         copy: src=buffer/comandes.txt dest=/home/test1/comandes.txt
        # when: "{{ ansible_host == 'ip_desti|string' }}"
-        when: 'inventory_hostname|string in '201' '
+        when: 'inventory_hostname|string in ip_desti|string'
 
 #      - name: Copiar de Origen a local
 #        ansible.builtin.shell: scp -3 -s -r scp://ansible@10.10.10.200:22//home/ansible scp://ansible@10.10.10.201:22//home/ansible/Documentos/copiahome
