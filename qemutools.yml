@@ -2,6 +2,8 @@
  - name: Install qemu tools
    hosts: all
    become: yes
-   apt:
-     name: qemu-utils
-     state: present
+   tasks:
+     - name: apt qemu-utils
+       apt:
+         name: qemu-utils
+         state: present
