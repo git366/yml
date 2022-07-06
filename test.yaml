@@ -2,6 +2,7 @@
  - name: NTP config
    hosts: all
    become: yes
+   gather_facts: no
    tasks:
 #      - name: change timezone
 #        ansible.builtin.shell: echo Europe/Andorra > /etc/timezone
